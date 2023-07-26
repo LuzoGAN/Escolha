@@ -13,19 +13,27 @@ if 'clicked' not in st.session_state:
 def click_button():
     st.session_state.clicked = True
 
+st.sidebar.title('Selecionador de Sabores')
+
 with col1:
    st.header("Recheio 1")
 
-   if st.button('Escolha'):
-       st.markdown(random.choice(recheio_1))
+   if st.button('Escolha 1', on_click=click_button):
+       st.markdown(random.choice((recheio_1)))
+
+   if st.session_state.clicked:
+       st.markdown(random.choice((recheio_1)))
 
    st.image("https://static.streamlit.io/examples/cat.jpg")
 
 with col2:
    st.header("Recheio 2")
 
-   if st.button('Escolha 2'):
-       st.markdown(random.choice(recheio_2))
+   if st.button('Escolha 2', on_click=click_button):
+       st.markdown(random.choice((recheio_2)))
+
+   if st.session_state.clicked:
+       st.markdown(random.choice((recheio_2)))
 
    st.image("https://static.streamlit.io/examples/dog.jpg")
 
